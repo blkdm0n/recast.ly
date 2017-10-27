@@ -6,19 +6,20 @@ class App extends React.Component {
       isInList: props.videos
     };
     this.handleClick = this.handleClick.bind(this);
+    this.handleSearch = this.handleSearch.bind(this);
   }
    
-  handleClick(id) {
+  handleClick(props) {
     console.log('clicked title');
     this.setState({
-      isPlaying: this.props.videos[id]
+      isPlaying: props.video
     });
   }
 
   handleSearch(data) {
     this.setState({
-      isPlaying: this.data[0], 
-      isInList: this.data,
+      isPlaying: data.items[0], 
+      isInList: data.items
     });
   }
   render() { 
