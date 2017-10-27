@@ -3,7 +3,6 @@ var VideoList = (props) => (
     {props.videos.map((video, index) =>
       <VideoListEntry key= {index} id = {index} video = {video} handleClick={props.handleClick}/>
     )}
-    {console.log(props.videos)}
   </div>
 );
 

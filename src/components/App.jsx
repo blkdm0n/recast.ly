@@ -2,15 +2,14 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      isPlaying: props.videos[0],
+      isPlaying: props.videos ? props.videos[0] : null,
       isInList: props.videos
     };
     this.handleClick = this.handleClick.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
   }
-   
+  
   handleClick(props) {
-    console.log('clicked title');
     this.setState({
       isPlaying: props.video
     });
@@ -22,6 +21,8 @@ class App extends React.Component {
       isInList: data.items
     });
   }
+  componentDidMount() { searchYouTube('', this.handleSearch); }
+
   render() { 
     return (
       <div>
