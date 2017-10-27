@@ -14,19 +14,19 @@ describe('VideoListEntry', function() {
   beforeEach(function() {
     cuteCatVideo = renderIntoDocument(
       <Wrapper>
-        <VideoListEntry video={window.fakeVideoData[0]} />
+        <VideoListEntry id ={0} video={window.fakeVideoData[0]} handleClick = {function() {}}/>
       </Wrapper>
     );
 
     superCuteCatVideo = renderIntoDocument(
       <Wrapper>
-        <VideoListEntry video={window.fakeVideoData[1]} />
+        <VideoListEntry id = {1} video={window.fakeVideoData[1]} handleClick = {function() {}} />
       </Wrapper>
     );
 
     hackReactorVideo = renderIntoDocument(
       <Wrapper>
-        <VideoListEntry video={window.fakeVideoData[2]} />
+        <VideoListEntry id = {2} video={window.fakeVideoData[2]} handleClick = {function() {}} />
       </Wrapper>
     );
   });

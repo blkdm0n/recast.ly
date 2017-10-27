@@ -2,16 +2,23 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      isPlaying: false
+      isPlaying: props.videos[0],
+      isInList: props.videos
     };
     this.handleClick = this.handleClick.bind(this);
   }
-  
-  
-  handleClick() {
+   
+  handleClick(id) {
     console.log('clicked title');
     this.setState({
-      playing: !this.state.playing
+      isPlaying: this.props.videos[id]
+    });
+  }
+
+  handleSearch(data) {
+    this.setState({
+      isPlaying: this.data[0], 
+      isInList: this.data,
     });
   }
   render() { 
@@ -19,15 +26,15 @@ class App extends React.Component {
       <div>
         <nav className="navbar">
           <div className="col-md-6 offset-md-3">
-            <div><Search /></div>
+            <div><Search handleSearch={this.handleSearch}/></div>
           </div>
         </nav>
         <div className="row">
           <div className="col-md-7">
-            <div><VideoPlayer video={this.props.videos[0]}/></div>
+            <div><VideoPlayer video={this.state.isPlaying}/></div>
           </div>
           <div className="col-md-5">
-            <div><VideoList videos={this.props.videos} handleClick={this.handleClick}/></div>
+            <div><VideoList videos={this.state.isInList} handleClick={this.handleClick}/></div>
           </div>
         </div>
       </div>
